@@ -36,7 +36,7 @@ rl.question("Enter your choice (1-3): ", choice =>{
             }
         })
     } else if (choice === "3"){
-        console.log("Exiting Application");
+        exitingProgram();
     } else {
         console.log("Invalid Choice. Please Try Again");
     }
@@ -64,4 +64,9 @@ rl.question("Enter your choice (1-3): ", choice =>{
             }
         })
   }
+   function exitingProgram(){
+    console.log("Exit Application");
+    rl.close();
+    console.clear();
+   }
 mainMenu();
