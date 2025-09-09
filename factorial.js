@@ -16,7 +16,7 @@ function mainMenu(){
 rl.question("Enter your choice (1-3): ", choice =>{
     console.log(choice);
     if (choice === "1"){
-        console.log("Hello");
+        sayHello();
     } else if (choice === "2"){
         console.log("Factorial");
         
@@ -42,4 +42,7 @@ rl.question("Enter your choice (1-3): ", choice =>{
     }
   })
 }
+  function sayHello(){
+    console.log("Hello");
+  }
 mainMenu();
