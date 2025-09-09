@@ -62,6 +62,7 @@ rl.question("Enter your choice (1-3): ", choice =>{
 
                 console.log("The factorial of " + num + " is " + fact);
             }
+            backtoMenu();
         })
   }
    function exitingProgram(){
@@ -69,4 +70,25 @@ rl.question("Enter your choice (1-3): ", choice =>{
     rl.close();
     console.clear();
    }
+   function backtoMenu(){
+    console.log("-------------");
+    console.log("1.Back to menu");
+    console.log("2.Exiting application");
+    console.log("-------------");
+
+    rl.question("What will you do next? (1-2)" , (backtoMenuchoice)=>{
+      if(backtoMenuchoice === "1"){
+        console.clear();
+        mainMenu();
+    } else if(backtoMenuchoice === "2"){
+        console.clear();
+        exitingProgram();
+    }else{
+        console.log("Invalid choice! Please try again!");
+        backtoMenu();
+    }
+
+     }
+
+   )}
 mainMenu();
