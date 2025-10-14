@@ -29,8 +29,7 @@
                     labels: data.Chart,
                     datasets:[{
                         label: "Monthly Data",
-                        data: data.values,
-                        borderWidth:1
+                        data: data.values
                     }]
                   }
                })
@@ -56,6 +55,32 @@
       }
     }
   });
+       async fetchData(){
+         try{
+             const response = await fetch (this.dataUrl);
+        
+             if(!response.ok) throw new Error(`Failed to load data:${response.statusText}`);
+  
+             const data = await response/json();
+             return data;
+
+        } catch {
+           console.error("Error fetching data:" , error);
+    }
+}
+
+      async init(){
+       const data = await this.fetchData();
+         if(data){
+           this.renderChart(data);
+    
+    }
+}
+
+document.addEvntListener("DOMContentLoaded" , () =>{
+    const chart = new LineChart("lineChart" , "linedata.json")
+    chart.init();
+})
 </script>
  
 </body>
